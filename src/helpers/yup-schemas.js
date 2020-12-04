@@ -8,5 +8,7 @@ yup.setLocale({
 
 export const loginSchema = yup.object().shape({
   email: yup.string().email('Insira um e-mail válido').required(),
-  password: yup.string().required()
+  name: yup.string().required(),
+  cpf: yup.string().required(),
+  phone: yup.string().required()
 })

@@ -2,6 +2,7 @@
 
 exports[`<Button /> render and generate snapshot 1`] = `
 .c0 {
+  margin: 6px;
   width: regular;
   height: small;
   color: white;
