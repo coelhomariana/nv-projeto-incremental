@@ -7,13 +7,19 @@ import Text from 'components/Text'
 
 const InputComponent = ({ label, name, register, placeholder, error, disabled, type, ...props }) => (
   <Column {...props}>
-    {label && <Text mb={5}>{label}</Text>}
+    {label && (
+      <Text mb={10} color='white' fontSize='15px'>
+        {label}
+      </Text>
+    )}
     <Column height={40} position='relative'>
       <Input name={name} ref={register} placeholder={placeholder} error={error} type={type} />
-      <Text position='absolute' bottom={0} color='red' variant='small'>
+    </Column>
+    {error && (
+      <Text color='red' variant='small'>
         {error}
       </Text>
-    </Column>
+    )}
   </Column>
 )
 
@@ -22,6 +28,7 @@ const Input = styled.input`
   border: 1px solid black;
   border-radius: 4px;
   padding: 2px;
+  background-color: #8e8fa7;
 `
 
 InputComponent.defaultProps = {

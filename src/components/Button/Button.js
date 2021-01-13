@@ -13,11 +13,14 @@ const ButtonComponent = ({ children, isLoading, ...props }) => (
 const Button = styled.button(space, layout, typography, color, border)
 
 ButtonComponent.defaultProps = {
-  width: 'regular',
+  width: '185px',
   height: 'small',
   borderRadius: 4,
-  color: 'white',
-  margin: '6px'
+  margin: '30px 8px 10px 8px',
+  color: '#2d592d',
+  fontWeight: 'bold',
+  fontSize: '17px',
+  fontFamily: 'monospace'
 }
 
 ButtonComponent.propTypes = {

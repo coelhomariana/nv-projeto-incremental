@@ -5,7 +5,7 @@ exports[`<Button /> render and generate snapshot 1`] = `
   margin: 6px;
   width: regular;
   height: small;
-  color: white;
+  color: #2d592d;
   border-radius: 4px;
 }
 
@@ -13,7 +13,10 @@ exports[`<Button /> render and generate snapshot 1`] = `
   className="c0"
   color="white"
   disabled={true}
+  fontFamily='monospace'
+  fontSize='17px'
+  fontWeight='bold'
   height="small"
-  width="regular"
+  width="185px"
 />
 `;
