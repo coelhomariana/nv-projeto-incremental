@@ -16,11 +16,9 @@ ButtonComponent.defaultProps = {
   width: '185px',
   height: 'small',
   borderRadius: 4,
-  margin: '30px 8px 10px 8px',
   color: '#2d592d',
   fontWeight: 'bold',
-  fontSize: '17px',
-  fontFamily: 'monospace'
+  fontSize: '17px'
 }
 
 ButtonComponent.propTypes = {

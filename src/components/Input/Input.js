@@ -12,7 +12,7 @@ const InputComponent = ({ label, name, register, placeholder, error, disabled, t
         {label}
       </Text>
     )}
-    <Column height={40} position='relative'>
+    <Column height={40}>
       <Input name={name} ref={register} placeholder={placeholder} error={error} type={type} />
     </Column>
     {error && (

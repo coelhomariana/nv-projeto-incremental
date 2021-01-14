@@ -10,8 +10,6 @@ import { useUser } from 'context/user-context'
 
 import { loginSchema } from 'helpers/yup-schemas'
 
-import * as yup from 'yup'
-
 const Login = () => {
   const { login } = useUser()
 
@@ -25,16 +23,14 @@ const Login = () => {
     }
   }
 
-  console.log(errors)
-
   return (
-    <Column as='form' onSubmit={handleSubmit(onSubmit)} p={40} alignItems='center' backgroundColor='#343a50'>
+    <Column as='form' onSubmit={handleSubmit(onSubmit)} p={40} alignItems='center'>
       <Input
         name='name'
         register={register}
         label='Nome'
         placeholder='Seu Nome'
-        width='30%'
+        width='390px'
         error={errors.name?.message}
       />
 
@@ -43,7 +39,7 @@ const Login = () => {
         register={register}
         label='E-mail'
         placeholder='example@example.com'
-        width='30%'
+        width='390px'
         error={errors.email?.message}
       />
 
@@ -52,7 +48,7 @@ const Login = () => {
         register={register}
         label='CPF'
         placeholder='123.456.789-00'
-        width='30%'
+        width='390px'
         type='text'
         error={errors.cpf?.message}
       />
@@ -61,15 +57,15 @@ const Login = () => {
         register={register}
         label='Celular'
         placeholder='(00) 00000-0000'
-        width='30%'
+        width='390px'
         type='text'
         error={errors.phone?.message}
       />
       <Row>
-        <Button bg='#84db84' isLoading={formState.isSubmitting}>
+        <Button bg='#84db84' isLoading={formState.isSubmitting} margin='30px 8px 10px 8px'>
           Confirmar
         </Button>
-        <Button bg='#fff' isLoading={formState.isSubmitting}>
+        <Button bg='#fff' isLoading={formState.isSubmitting} margin='30px 8px 10px 8px'>
           Cancelar
         </Button>
       </Row>
