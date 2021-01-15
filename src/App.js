@@ -26,6 +26,10 @@ const GlobalStyle = createGlobalStyle`
   font-family: monospace;
 }
 
+body {
+  background-color: #343a50;
+}
+
 button, a {
   cursor: pointer;
   &:disabled{
