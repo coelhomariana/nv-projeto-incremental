@@ -13,14 +13,14 @@ const SignUp = () => {
 
   const onSubmit = async values => {
     try {
-      await console.log(values)
+      console.log(values)
     } catch (error) {
       console.log(error)
     }
   }
 
   return (
-    <Column as='form' onSubmit={handleSubmit(onSubmit)} p={40} alignItems='center'>
+    <Column as='form' onSubmit={handleSubmit(onSubmit)} p='40' alignItems='center'>
       <Input
         name='name'
         register={register}

@@ -1,14 +1,9 @@
 import React from 'react'
 
 import Row from 'components/Row'
-import Navbar from 'components/Navbar'
 
 const Login = () => {
-  return (
-    <Row>
-      <Navbar></Navbar>
-    </Row>
-  )
+  return <Row></Row>
 }
 
 export default Login
