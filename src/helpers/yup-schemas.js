@@ -6,7 +6,7 @@ yup.setLocale({
   }
 })
 
-export const loginSchema = yup.object().shape({
+export const signUpSchema = yup.object().shape({
   email: yup.string().email('Insira um e-mail válido').required(),
   name: yup.string().required(),
   cpf: yup
