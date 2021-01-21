@@ -22,15 +22,3 @@ const Card = ({ children, ...props }) => {
 }
 
 export default Card
-
-{
-  /* <Text variant='tiny'>(inserir imagem)</Text>
-        <Text variant='big'>Título</Text>
-        <Text variant='regular' marginTop='10px' color='gray'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud.
-        </Text>
-        <Row>
-          <Button>Botão</Button>
-        </Row> */
-}
