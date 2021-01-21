@@ -3,28 +3,24 @@ import { useForm } from 'react-hook-form'
 
 import Column from 'components/Column'
 import Row from 'components/Row'
-import Input from 'components/Input'
-import Button from 'components/Button'
 
-import { useUser } from 'context/user-context'
+import { signUpSchema } from 'helpers/yup-schemas'
 
-import { loginSchema } from 'helpers/yup-schemas'
-
-const Login = () => {
+const SignUp = () => {
   const { login } = useUser()
 
-  const { register, handleSubmit, errors, formState } = useForm({ validationSchema: loginSchema })
+  const { register, handleSubmit, errors, formState } = useForm({ validationSchema: signUpSchema })
 
   const onSubmit = async values => {
     try {
-      await login(values)
+      console.log(values)
     } catch (error) {
       console.log(error)
     }
   }
 
   return (
-    <Column as='form' onSubmit={handleSubmit(onSubmit)} p={40} alignItems='center'>
+    <Column as='form' onSubmit={handleSubmit(onSubmit)} p='40' alignItems='center'>
       <Input
         name='name'
         register={register}
@@ -73,4 +69,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default SignUp

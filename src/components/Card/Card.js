@@ -6,7 +6,7 @@ const Card = ({ children, ...props }) => {
   return (
     <Column
       backgroundColor='white'
-      p={20}
+      p='20px'
       border='none'
       borderRadius='0px 0px 6px 6px'
       width='350px'
