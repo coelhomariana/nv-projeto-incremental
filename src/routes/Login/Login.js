@@ -8,7 +8,7 @@ import avatar from 'assets/images/avatar.svg'
 const Login = () => {
   return (
     <Row justifyContent='center'>
-      <Navbar title='Título' icon={avatar}></Navbar>
+      <Navbar title='Título' icon={avatar} />
     </Row>
   )
 }
