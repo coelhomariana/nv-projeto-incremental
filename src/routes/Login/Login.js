@@ -1,14 +1,12 @@
 import React from 'react'
 
 import Row from 'components/Row'
-import Navbar from 'components/Navbar'
-
-import avatar from 'assets/images/avatar.svg'
+import Modal from 'components/Modal'
 
 const Login = () => {
   return (
     <Row justifyContent='center'>
-      <Navbar title='Título' icon={avatar} />
+      <Modal />
     </Row>
   )
 }
