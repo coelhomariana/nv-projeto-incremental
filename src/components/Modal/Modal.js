@@ -1,10 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import PropTypes from 'prop-types'
 
 import Row from 'components/Row'
 import Card from 'components/Card'
-import Text from 'components/Text'
+import Button from 'components/Button'
 
-const Modal = () => {
+const Modal = ({ children, isModalOpen, onClose, ...props }) => {
+  useEffect(() => {
+    if (!isModalOpen) {
+      document.body.style.overflow = 'auto'
+      return
+    }
+    document.body.style.overflow = 'hidden'
+  }, [isModalOpen])
+
+  if (!isModalOpen) return null
+
   return (
     <Row
       justifyContent='center'
@@ -13,10 +24,23 @@ const Modal = () => {
       backgroundColor='rgba(0,0,0,.5)'
       height='100vh'
       width='100vw'
+      top={0}
+      left={0}
     >
-      <Card width='600px'></Card>
+      <Card width='600px' {...props}>
+        {children}
+        <Row alignItems='center' justifyContent='flex-end'>
+          <Button onClick={onClose}>Fechar</Button>
+        </Row>
+      </Card>
     </Row>
   )
+}
+
+Modal.propTypes = {
+  children: PropTypes.object,
+  isModalOpen: PropTypes.bool,
+  onClose: PropTypes.func
 }
 
 export default Modal

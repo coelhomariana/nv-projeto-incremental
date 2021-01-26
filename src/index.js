@@ -5,7 +5,6 @@ import 'react-app-polyfill/stable'
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import * as Sentry from '@sentry/browser'
 import { ReactQueryCacheProvider, QueryCache } from 'react-query'
 
 import App from './App'
