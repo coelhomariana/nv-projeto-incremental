@@ -28,6 +28,7 @@ const Modal = ({ children, isModalOpen, onClose, ...props }) => {
     >
       <Card width='600px' {...props}>
         {children}
+        <Row alignItems='center' justifyContent='flex-end'></Row>
       </Card>
     </Row>
   )
