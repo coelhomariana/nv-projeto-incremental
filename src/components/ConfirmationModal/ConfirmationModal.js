@@ -5,9 +5,10 @@ import Text from 'components/Text'
 import Row from 'components/Row'
 import Button from 'components/Button'
 
-const ConfirmationModal = ({ children, isModalOpen, onClose, ...props }) => {
+const ConfirmationModal = (children, isModalOpen, onClose, ...props) => {
   return (
     <Modal alignItems='center' justifyContent='space-around' isModalOpen={isModalOpen} onClose={onClose} {...props}>
+      <Text variant='big'>Aviso!</Text>
       <Row alignItems='center' justifyContent='center'>
         <Text variant='medium'>Tem certeza que deseja fazer isso?</Text>
       </Row>
