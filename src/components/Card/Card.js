@@ -8,7 +8,7 @@ const Card = ({ children, ...props }) => {
       backgroundColor='white'
       p='20px'
       border='none'
-      borderRadius='0px 0px 6px 6px'
+      borderRadius='4px'
       width='350px'
       height='300px'
       justifyContent='space-between'
