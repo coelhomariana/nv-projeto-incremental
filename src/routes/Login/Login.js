@@ -6,6 +6,7 @@ import Column from 'components/Column'
 import Button from 'components/Button'
 import ConfirmationModal from 'components/ConfirmationModal'
 
+
 const Login = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
@@ -17,6 +18,7 @@ const Login = () => {
       <ConfirmationModal isModalOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
         <Row width='100%' height='100px' />
       </ConfirmationModal>
+
     </Column>
   )
 }

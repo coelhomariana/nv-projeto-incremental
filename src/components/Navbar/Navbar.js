@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import Row from 'components/Row'
 import Image from 'components/Image'
@@ -12,6 +13,11 @@ const Navbar = props => {
       <Text margin='10px'>{title}</Text>
     </Row>
   )
+}
+
+Navbar.propTypes = {
+  title: PropTypes.string,
+  icon: PropTypes.string
 }
 
 export default Navbar
