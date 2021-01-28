@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
 
-import Row from 'components/Row'
 import Column from 'components/Column'
 import Button from 'components/Button'
 import ConfirmationModal from 'components/ConfirmationModal'
@@ -14,9 +13,7 @@ const Login = () => {
       <Button marginTop='10px' onClick={() => setIsModalOpen(true)}>
         Abrir modal
       </Button>
-      <ConfirmationModal isModalOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-        <Row width='100%' height='100px' />
-      </ConfirmationModal>
+      <ConfirmationModal isModalOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </Column>
   )
 }
