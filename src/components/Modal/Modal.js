@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 
 import Row from 'components/Row'
 import Card from 'components/Card'
-import Button from 'components/Button'
 
 const Modal = ({ children, isModalOpen, onClose, ...props }) => {
   useEffect(() => {
@@ -29,9 +28,6 @@ const Modal = ({ children, isModalOpen, onClose, ...props }) => {
     >
       <Card width='600px' {...props}>
         {children}
-        <Row alignItems='center' justifyContent='flex-end'>
-          <Button onClick={onClose}>Fechar</Button>
-        </Row>
       </Card>
     </Row>
   )
