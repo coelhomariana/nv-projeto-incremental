@@ -1,19 +1,55 @@
 import React from 'react'
-import { useState } from 'react'
+
+import { useHistory } from 'react-router-dom'
+
+import { useForm } from 'react-hook-form'
+
+import { loginSchema } from 'helpers/yup-schemas'
 
 import Column from 'components/Column'
 import Button from 'components/Button'
-import ConfirmationModal from 'components/ConfirmationModal'
+import Input from 'components/Input'
+import Row from 'components/Row'
+
+import { mockLogin } from 'services/auth'
 
 const Login = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const { register, handleSubmit, errors } = useForm({ validationSchema: loginSchema })
+  const history = useHistory()
+
+  const onSubmit = async values => {
+    try {
+      const response = await mockLogin(values)
+      window.localStorage.setItem('username', response.username)
+      history.push('/dashboard')
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
   return (
-    <Column justifyContent='center'>
-      <Button marginTop='10px' onClick={() => setIsModalOpen(true)}>
-        Abrir modal
-      </Button>
-      <ConfirmationModal isModalOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+    <Column as='form' onSubmit={handleSubmit(onSubmit)} alignItems='center' justifyContent='center' height='600px'>
+      <Input
+        name='username'
+        register={register({ required: true })}
+        type='text'
+        label='Usuário'
+        placeholder='Ex.: "nomedeusuario"'
+        width='390px'
+        error={errors.username?.message}
+      />
+      <Input
+        name='password'
+        register={register({ required: true })}
+        type='password'
+        label='Senha'
+        placeholder='&#9679;&#9679;&#9679;&#9679;&#9679;'
+        width='390px'
+        error={errors.password?.message}
+      />
+      <Row margin='30px'>
+        <Button onClick={handleSubmit(onSubmit)}>Logar</Button>
+      </Row>
     </Column>
   )
 }
