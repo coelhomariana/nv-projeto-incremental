@@ -43,11 +43,7 @@ const App = () => {
   const loggedUser = window.localStorage.getItem('username')
 
   useEffect(() => {
-    if (loggedUser) {
-      console.log('Logado!')
-    } else {
-      console.log('Não logado!')
-    }
+    loadAuthenticatedApp()
   }, [])
 
   return (

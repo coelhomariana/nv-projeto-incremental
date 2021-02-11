@@ -7,8 +7,6 @@ import Row from 'components/Row'
 import { signUpSchema } from 'helpers/yup-schemas'
 
 const SignUp = () => {
-  const { login } = useUser()
-
   const { register, handleSubmit, errors, formState } = useForm({ validationSchema: signUpSchema })
 
   const onSubmit = async values => {
