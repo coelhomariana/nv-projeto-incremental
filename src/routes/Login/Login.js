@@ -1,7 +1,5 @@
 import React from 'react'
 
-import { useHistory } from 'react-router-dom'
-
 import { useForm } from 'react-hook-form'
 
 import Column from 'components/Column'
@@ -14,13 +12,12 @@ import { loginSchema } from 'helpers/yup-schemas'
 
 const Login = () => {
   const { register, handleSubmit, formState, errors } = useForm({ validationSchema: loginSchema })
-  const history = useHistory()
 
   const onSubmit = async values => {
     try {
       const response = await mockLogin(values)
       window.localStorage.setItem('username', response.username)
-      history.push('/dashboard')
+      window.location.reload()
     } catch (err) {
       console.log(err)
     }

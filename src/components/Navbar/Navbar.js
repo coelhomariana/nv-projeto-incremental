@@ -8,9 +8,16 @@ import Text from 'components/Text'
 const Navbar = props => {
   const { title, icon } = props
   return (
-    <Row justifyContent='space-between' backgroundColor='white' width='600px' height='55px' padding='5px' {...props}>
+    <Row
+      justifyContent='space-between'
+      backgroundColor='white'
+      width='100vw'
+      height='55px'
+      padding='5px 15px 5px 15px'
+      {...props}
+    >
       <Image src={icon} size='45px'></Image>
-      <Text margin='10px'>{title}</Text>
+      <Text margin='10px 30px 10px 10px'>{title}</Text>
     </Row>
   )
 }
