@@ -11,10 +11,8 @@ export const mockLogin = async ({ username, password }) => {
 
     if (foundUser) {
       return foundUser
-    } else {
-      alert('Não foi possível efetuar o login com esses dados, tente novamente')
-      throw new Error()
     }
+    throw new Error()
   } catch (err) {
     console.log(err)
   }

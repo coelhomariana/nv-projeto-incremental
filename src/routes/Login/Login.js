@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { useForm } from 'react-hook-form'
 
 import Column from 'components/Column'
@@ -19,6 +18,7 @@ const Login = () => {
       window.localStorage.setItem('username', response.username)
       window.location.reload()
     } catch (err) {
+      alert('Não foi possível efetuar o login com esses dados, tente novamente')
       console.log(err)
     }
   }
