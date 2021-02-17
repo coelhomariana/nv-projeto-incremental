@@ -8,7 +8,7 @@ import Text from 'components/Text'
 const InputComponent = ({ label, name, register, placeholder, error, disabled, type, ...props }) => (
   <Column {...props}>
     {label && (
-      <Text mb={10} color='white' fontSize='15px'>
+      <Text mb={10} color='black' fontSize='15px'>
         {label}
       </Text>
     )}

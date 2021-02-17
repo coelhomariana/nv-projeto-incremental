@@ -1,7 +1,6 @@
 import React from 'react'
 
 import Column from 'components/Column'
-import Text from 'components/Text'
 
 const Card = ({ children, ...props }) => {
   return (

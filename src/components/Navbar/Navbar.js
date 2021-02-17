@@ -10,7 +10,7 @@ const Navbar = props => {
   return (
     <Row
       justifyContent='space-between'
-      backgroundColor='white'
+      backgroundColor='#212121'
       width='100vw'
       height='55px'
       padding='5px 15px 5px 15px'

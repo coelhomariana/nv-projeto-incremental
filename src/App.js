@@ -27,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
 }
 
 body {
-  background-color: #343a50;
+  background-color: #e3c7ff;
 }
 
 button, a {

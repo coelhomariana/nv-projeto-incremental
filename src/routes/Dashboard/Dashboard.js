@@ -11,7 +11,7 @@ import avatar from 'assets/images/avatar.svg'
 
 const Dashboard = () => (
   <Column>
-    <Navbar icon={avatar} title='Dashboard' />
+    <Navbar icon={avatar} title='Dashboard' color='white' />
     <Row width={1} flexWrap='wrap' padding='10px' justifyContent='center'>
       <DashboardCard
         title='Texto Um'
