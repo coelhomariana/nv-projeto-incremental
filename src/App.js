@@ -39,10 +39,15 @@ button, a {
 `
 
 const App = () => {
-  const { user, isLoading } = useUser()
+  const { isLoading } = useUser()
+  const loggedUser = window.localStorage.getItem('username')
 
   useEffect(() => {
-    loadAuthenticatedApp()
+    if (loggedUser) {
+      console.log('Logado!')
+    } else {
+      console.log('Não logado!')
+    }
   }, [])
 
   return (
@@ -51,7 +56,7 @@ const App = () => {
       <GlobalStyle />
       <Suspense fallback={<Loader />}>
         {isLoading && <Loader />}
-        <Router>{user ? <AuthenticatedApp /> : <UnauthenticatedApp />}</Router>
+        <Router>{loggedUser ? <AuthenticatedApp /> : <UnauthenticatedApp />}</Router>
       </Suspense>
       <ReactQueryDevtools initialIsOpen={false} />
     </Theme>
