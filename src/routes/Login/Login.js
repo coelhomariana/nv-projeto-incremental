@@ -1,6 +1,8 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 
+import { loginResolver } from 'helpers/yup-schemas'
+
 import Column from 'components/Column'
 import Button from 'components/Button'
 import Input from 'components/Input'
@@ -10,7 +12,8 @@ import { mockLogin } from 'services/auth'
 import { loginSchema } from 'helpers/yup-schemas'
 
 const Login = () => {
-  const { register, handleSubmit, formState, errors } = useForm({ validationSchema: loginSchema })
+  const { register, handleSubmit, errors } = useForm({ resolver: loginResolver })
+  const history = useHistory()
 
   const onSubmit = async values => {
     try {

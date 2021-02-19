@@ -1,4 +1,5 @@
 import * as yup from 'yup'
+import { yupResolver } from '@hookform/resolvers/yup'
 
 yup.setLocale({
   mixed: {
@@ -6,7 +7,7 @@ yup.setLocale({
   }
 })
 
-export const signUpSchema = yup.object().shape({
+export const signUpResolver = yup.object().shape({
   email: yup.string().email('Insira um e-mail válido').required(),
   name: yup.string().required(),
   cpf: yup
@@ -16,10 +17,13 @@ export const signUpSchema = yup.object().shape({
   phone: yup
     .string()
     .required()
-    .matches(/^\([1-9]{2}\) (?:[2-8]|9[1-9])[0-9]{3}\-[0-9]{4}$/, 'Formato do número de celular incorreto')
+    .matches(/^\([1-9]{2}\) (?:[2-8]|9[1-9])[0-9]{3}\-[0-9]{4}$/, 'Formato do número de celular  incorreto')
 })
 
-export const loginSchema = yup.object().shape({
-  username: yup.string().required().min(2, 'Precisa ter no mínimo 2 caracteres'),
-  password: yup.string().required().min(2, 'O formato da senha está incorreto')
-})
+export const loginResolver = yupResolver(
+  yup.object().shape({
+    username: yup.string().required().min(2, 'Precisa ter no mínimo 2 caracteres'),
+    password: yup.string().required().min(2, 'O formato da senha está incorreto')
+  })
+)
+
