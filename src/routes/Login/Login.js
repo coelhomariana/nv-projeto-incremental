@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom'
 
 import { useForm } from 'react-hook-form'
 
-import { loginSchema } from 'helpers/yup-schemas'
+import { loginResolver } from 'helpers/yup-schemas'
 
 import Column from 'components/Column'
 import Button from 'components/Button'
@@ -14,7 +14,7 @@ import Row from 'components/Row'
 import { mockLogin } from 'services/auth'
 
 const Login = () => {
-  const { register, handleSubmit, errors } = useForm({ validationSchema: loginSchema })
+  const { register, handleSubmit, errors } = useForm({ resolver: loginResolver })
   const history = useHistory()
 
   const onSubmit = async values => {
@@ -31,7 +31,7 @@ const Login = () => {
     <Column as='form' onSubmit={handleSubmit(onSubmit)} alignItems='center' justifyContent='center' height='600px'>
       <Input
         name='username'
-        register={register({ required: true })}
+        register={register}
         type='text'
         label='Usuário'
         placeholder='Ex.: "nomedeusuario"'
@@ -40,7 +40,7 @@ const Login = () => {
       />
       <Input
         name='password'
-        register={register({ required: true })}
+        register={register}
         type='password'
         label='Senha'
         placeholder='&#9679;&#9679;&#9679;&#9679;&#9679;'
