@@ -22,7 +22,8 @@ export const signUpResolver = yup.object().shape({
 
 export const loginResolver = yupResolver(
   yup.object().shape({
-    username: yup.string().required('Insira um nome de usuário válido'),
-    password: yup.string().required('Insira a senha')
+    username: yup.string().required().min(2, 'Precisa ter no mínimo 2 caracteres'),
+    password: yup.string().required().min(2, 'O formato da senha está incorreto')
   })
 )
+

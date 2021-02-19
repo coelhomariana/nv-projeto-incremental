@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <Fragment>
       <Button onClick={logout}>logout</Button>
-      <Link to='/dashboard'>GO TO DASHBOARD</Link>
+      <Link to='/dashboard'>Ir para Dashboard</Link>
     </Fragment>
   )
 }

@@ -1,4 +1,5 @@
 export const styles = {
+  breakpoints: ['768px', '1200px'],
   space: [],
   sizes: {
     regular: 200,

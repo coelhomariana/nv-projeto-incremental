@@ -27,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
 }
 
 body {
-  background-color: #343a50;
+  background-color: #e3c7ff;
 }
 
 button, a {
@@ -43,11 +43,7 @@ const App = () => {
   const loggedUser = window.localStorage.getItem('username')
 
   useEffect(() => {
-    if (loggedUser) {
-      console.log('Logado!')
-    } else {
-      console.log('Não logado!')
-    }
+    loadAuthenticatedApp()
   }, [])
 
   return (

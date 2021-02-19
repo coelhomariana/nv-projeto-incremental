@@ -1,7 +1,4 @@
 import React from 'react'
-
-import { useHistory } from 'react-router-dom'
-
 import { useForm } from 'react-hook-form'
 
 import { loginResolver } from 'helpers/yup-schemas'
@@ -12,6 +9,7 @@ import Input from 'components/Input'
 import Row from 'components/Row'
 
 import { mockLogin } from 'services/auth'
+import { loginSchema } from 'helpers/yup-schemas'
 
 const Login = () => {
   const { register, handleSubmit, errors } = useForm({ resolver: loginResolver })
@@ -21,20 +19,21 @@ const Login = () => {
     try {
       const response = await mockLogin(values)
       window.localStorage.setItem('username', response.username)
-      history.push('/dashboard')
+      window.location.reload()
     } catch (err) {
+      alert('Não foi possível efetuar o login com esses dados, tente novamente')
       console.log(err)
     }
   }
 
   return (
-    <Column as='form' onSubmit={handleSubmit(onSubmit)} alignItems='center' justifyContent='center' height='600px'>
+    <Column as='form' onSubmit={handleSubmit(onSubmit)} alignItems='center' justifyContent='center' height='100vh'>
       <Input
         name='username'
         register={register}
         type='text'
         label='Usuário'
-        placeholder='Ex.: "nomedeusuario"'
+        placeholder='Ex.: "usuário"'
         width='390px'
         error={errors.username?.message}
       />
@@ -48,7 +47,9 @@ const Login = () => {
         error={errors.password?.message}
       />
       <Row margin='30px'>
-        <Button onClick={handleSubmit(onSubmit)}>Logar</Button>
+        <Button type='submit' isLoading={formState.isSubmitting}>
+          Logar
+        </Button>
       </Row>
     </Column>
   )

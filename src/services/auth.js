@@ -11,9 +11,8 @@ export const mockLogin = async ({ username, password }) => {
 
     if (foundUser) {
       return foundUser
-    } else {
-      throw new Error()
     }
+    throw new Error()
   } catch (err) {
     console.log(err)
   }
