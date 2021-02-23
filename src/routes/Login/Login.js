@@ -9,11 +9,9 @@ import Input from 'components/Input'
 import Row from 'components/Row'
 
 import { mockLogin } from 'services/auth'
-import { loginSchema } from 'helpers/yup-schemas'
 
 const Login = () => {
-  const { register, handleSubmit, errors } = useForm({ resolver: loginResolver })
-  const history = useHistory()
+  const { register, handleSubmit, formState, errors } = useForm({ resolver: loginResolver })
 
   const onSubmit = async values => {
     try {
