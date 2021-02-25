@@ -16,7 +16,7 @@ ButtonComponent.defaultProps = {
   width: '185px',
   height: 'small',
   borderRadius: 4,
-  color: '#2d592d',
+  color: '#00',
   fontWeight: 'bold',
   fontSize: '17px'
 }
