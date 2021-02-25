@@ -9,7 +9,7 @@ import DropdownMenu from 'components/DropdownMenu'
 const Navbar = props => {
   const { title, icon } = props
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const handleOpenMenu = () => setIsMenuOpen(!isMenuOpen)
+  const handleToggleMenu = () => setIsMenuOpen(!isMenuOpen)
   return (
     <Row
       justifyContent='space-between'
@@ -21,7 +21,7 @@ const Navbar = props => {
       {...props}
     >
       <DropdownMenu isMenuOpen={isMenuOpen} />
-      <Image onClick={handleOpenMenu} src={icon} size='45px'></Image>
+      <Image onClick={handleToggleMenu} src={icon} size='45px' />
       <Text marginY='10px' marginX='30px'>
         {title}
       </Text>
