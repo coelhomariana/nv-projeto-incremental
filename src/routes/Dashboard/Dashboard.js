@@ -7,26 +7,15 @@ import Column from 'components/Column'
 
 import avatar from 'assets/images/avatar.svg'
 
+import { DASHBOARD_DATA } from 'helpers/constants'
+
 const Dashboard = () => (
   <Column>
     <Navbar icon={avatar} title='Dashboard' color='white' />
     <Row width='100%' flexWrap='wrap' padding='10px' justifyContent='center'>
-      <DashboardCard
-        title='Texto Um'
-        content='Lorem ipsum dolor sit amet, consectetur adipiscing elit. In id nibh nec velit consectetur porttitor posuere sed neque. Vivamus quis pellentesque ex. '
-      />
-      <DashboardCard
-        title='Texto Dois'
-        content='Pellentesque non efficitur dolor, quis mattis ex. Pellentesque rutrum justo in efficitur blandit. Pellentesque efficitur eros sed tempor laoreet. Donec luctus est turpis, et elementum n'
-      />
-      <DashboardCard
-        title='Texto Três'
-        content='Fusce nec libero dapibus lectus facilisis vestibulum. Proin sed eleifend mi, sed efficitur eros. Nunc non arcu odio. Aenean ac accumsan erat, et dictum dolor. '
-      />
-      <DashboardCard
-        title='Texto Quatro'
-        content=' Mauris egestas metus est, ac varius nibh viverra ac. Nam eget ultrices sem, id aliquet nunc. In eleifend enim eget orci luctus imperdiet.'
-      />
+      {DASHBOARD_DATA.map(post => (
+        <DashboardCard title={post.title} content={post.content} key={post.title} />
+      ))}
     </Row>
   </Column>
 )
