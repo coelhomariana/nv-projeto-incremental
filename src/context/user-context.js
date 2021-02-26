@@ -19,7 +19,7 @@ const useUser = () => {
 const UserProvider = props => {
   const queryCache = useQueryCache()
 
-  const { data: user, isLoading } = useQuery('user', getUser, { enabled: getToken() })
+  const { data: user, isLoading } = useQuery('user', getUser, { enabled: false })
 
   const [login] = useMutation(loginService, {
     onSuccess: ({ access_token, refresh_token }) => {
