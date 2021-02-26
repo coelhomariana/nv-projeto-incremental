@@ -26,4 +26,3 @@ export const loginResolver = yupResolver(
     password: yup.string().required().min(2, 'O formato da senha está incorreto')
   })
 )
-
