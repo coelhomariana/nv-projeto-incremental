@@ -12,24 +12,13 @@ import { getAllCards } from 'services/dashboardCards'
 
 const Dashboard = () => {
   const { isLoading, data } = useQuery('getDashboardCards', getAllCards)
-  const formattedData = useMemo(() => {
-    if (!data) return
-
-    return data.data
-  }, [data])
-
-  console.log(formattedData)
 
   return (
     <Column>
       <Navbar icon={avatar} title='Dashboard' color='white' />
 
       <Row width='100%' flexWrap='wrap' padding='10px' justifyContent='center'>
-        {isLoading ? (
-          <Loader />
-        ) : (
-          formattedData.map(post => <DashboardCard title={post.title} content={post.content}></DashboardCard>)
-        )}
+        {isLoading ? <Loader /> : data.map(post => <DashboardCard title={post.title} content={post.content} />)}
       </Row>
     </Column>
   )

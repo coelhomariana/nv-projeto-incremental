@@ -1,3 +1,6 @@
 import client from 'providers/fetchClient'
 
-export const getAllCards = () => client.get('/cards')
+export const getAllCards = async () => {
+  const { data } = await client.get('/cards')
+  return data
+}
