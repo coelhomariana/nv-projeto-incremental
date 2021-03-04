@@ -13,7 +13,6 @@ const Navbar = props => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const { user } = useUser()
   const handleToggleMenu = () => setIsMenuOpen(!isMenuOpen)
-  console.log(user)
   return (
     <Row
       justifyContent='space-between'

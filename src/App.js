@@ -40,7 +40,10 @@ button, a {
 
 const App = () => {
   const { isLoading } = useUser()
-  const loggedUser = window.localStorage.getItem('username')
+  const stringifiedResponse = window.localStorage.getItem('response')
+  const parsedResponse = JSON.parse(stringifiedResponse)
+  console.log(parsedResponse)
+  const loggedUser = parsedResponse.username
 
   useEffect(() => {
     loadAuthenticatedApp()
