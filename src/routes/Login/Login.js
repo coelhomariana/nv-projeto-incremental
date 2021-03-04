@@ -17,6 +17,7 @@ const Login = () => {
     try {
       const response = await mockLogin(values)
       window.localStorage.setItem('username', response.username)
+      window.localStorage.setItem('avatar', response.avatar)
       window.location.reload()
     } catch (err) {
       alert('Não foi possível efetuar o login com esses dados, tente novamente')

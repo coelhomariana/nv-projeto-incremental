@@ -12,10 +12,11 @@ import { getAllCards } from 'services/dashboardCards'
 
 const Dashboard = () => {
   const { isLoading, data } = useQuery('getDashboardCards', getAllCards)
+  const userAvatar = localStorage.getItem('avatar')
 
   return (
     <Column>
-      <Navbar icon={avatar} title='Dashboard' color='white' />
+      <Navbar icon={userAvatar} title='Dashboard' color='white' />
 
       <Row width='100%' flexWrap='wrap' padding='10px' justifyContent='center'>
         {isLoading ? <Loader /> : data.map(post => <DashboardCard title={post.title} content={post.content} />)}

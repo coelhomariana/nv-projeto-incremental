@@ -6,10 +6,14 @@ import Image from 'components/Image'
 import Text from 'components/Text'
 import DropdownMenu from 'components/DropdownMenu'
 
+import { useUser } from 'context/user-context'
+
 const Navbar = props => {
   const { title, icon } = props
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { user } = useUser()
   const handleToggleMenu = () => setIsMenuOpen(!isMenuOpen)
+  console.log(user)
   return (
     <Row
       justifyContent='space-between'
