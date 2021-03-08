@@ -15,13 +15,20 @@ const useUser = () => {
 const UserProvider = props => {
   const [user, setUser] = useState({})
 
+  const logout = () => {
+    localStorage.removeItem('user')
+    window.location.reload()
+  }
+
   useEffect(() => {
-    if (window.localStorage.getItem('username')) {
-      setUser(user)
+    const localStorageUser = window.localStorage.getItem('user')
+
+    if (localStorageUser) {
+      setUser(JSON.parse(localStorageUser))
     }
   }, [])
 
-  return <UserContext.Provider value={{ user }} {...props} />
+  return <UserContext.Provider value={{ user, logout }} {...props} />
 }
 
 export { UserProvider, useUser }

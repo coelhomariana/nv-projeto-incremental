@@ -6,13 +6,11 @@ import Row from 'components/Row'
 import Button from 'components/Button'
 import Column from 'components/Column'
 
-const DropdownMenu = ({ isMenuOpen }) => {
-  if (!isMenuOpen) return null
+import { useUser } from 'context/user-context'
 
-  const handleLogout = () => {
-    localStorage.removeItem('username')
-    window.location.reload()
-  }
+const DropdownMenu = ({ isMenuOpen }) => {
+  const { logout } = useUser()
+  if (!isMenuOpen) return null
 
   return (
     <Card
@@ -33,7 +31,7 @@ const DropdownMenu = ({ isMenuOpen }) => {
       </Column>
 
       <Row justifyContent='center' margin='5px'>
-        <Button width='100%' onClick={handleLogout}>
+        <Button width='100%' onClick={logout}>
           Deslogar
         </Button>
       </Row>
