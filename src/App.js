@@ -39,8 +39,7 @@ button, a {
 `
 
 const App = () => {
-  const { isLoading } = useUser()
-  const loggedUser = window.localStorage.getItem('username')
+  const { user } = useUser()
 
   useEffect(() => {
     loadAuthenticatedApp()
@@ -51,8 +50,7 @@ const App = () => {
       <Helmet titleTemplate='Nave.rs | %s' />
       <GlobalStyle />
       <Suspense fallback={<Loader />}>
-        {isLoading && <Loader />}
-        <Router>{loggedUser ? <AuthenticatedApp /> : <UnauthenticatedApp />}</Router>
+        <Router>{!!Object.entries(user).length ? <AuthenticatedApp /> : <UnauthenticatedApp />}</Router>
       </Suspense>
       <ReactQueryDevtools initialIsOpen={false} />
     </Theme>
