@@ -13,7 +13,7 @@ const Dashboard = () => {
   const { isLoading, data } = useQuery('getDashboardCards', getAllCards)
   return (
     <Column>
-      <Navbar title='Dashboard' color='white' />
+      <Navbar color='white' />
 
       <Row width='100%' flexWrap='wrap' padding='10px' justifyContent='center'>
         {isLoading ? <Loader /> : data.map(post => <DashboardCard title={post.title} content={post.content} />)}
