@@ -12,7 +12,7 @@ import Button from 'components/Button'
 import Link from 'components/Link'
 import DropdownMenu from 'components/DropdownMenu'
 
-const Navbar = props => {
+const Navbar = () => {
   const { user, logout } = useUser()
 
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -29,7 +29,7 @@ const Navbar = props => {
       paddingY='5px'
       paddingX='25px'
       position='relative'
-      {...props}
+      color='white'
     >
       <DropdownMenu
         isMenuOpen={isMenuOpen}
@@ -51,12 +51,7 @@ const Navbar = props => {
       <DropdownMenu isMenuOpen={isRoutesMenuOpen} TitleComponent={<p onClick={handleToggleRoutesMenu}>Navegação</p>}>
         <Column>
           {routes.map(({ path, name }) => (
-            <Link href={path}>
-              <MenuItem cursor='pointer'>{name}</MenuItem>
-            </Link>
-          ))}
-          {unauthenticatedRoutes.map(({ path, name }) => (
-            <Link href={path}>
+            <Link href={path} textDecoration='none' color='white'>
               <MenuItem cursor='pointer'>{name}</MenuItem>
             </Link>
           ))}
@@ -74,9 +69,5 @@ const MenuItem = styled(Row)`
     color: #01f7c6;
   }
 `
-
-Navbar.propTypes = {
-  title: PropTypes.string
-}
 
 export default Navbar
