@@ -6,6 +6,8 @@ import Dashboard from 'routes/Dashboard'
 const AuthenticatedApp = () => (
   <Switch>
     <Route path='/dashboard' component={Dashboard} />
+    <Route path='/login' />
+    <Route path='/signup' />
     <Redirect to='/dashboard' />
   </Switch>
 )

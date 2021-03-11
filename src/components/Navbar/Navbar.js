@@ -3,15 +3,16 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { useUser } from 'context/user-context'
+import { routes, unauthenticatedRoutes } from 'helpers/routes'
 
 import Row from 'components/Row'
 import Image from 'components/Image'
 import Column from 'components/Column'
 import Button from 'components/Button'
+import Link from 'components/Link'
 import DropdownMenu from 'components/DropdownMenu'
 
 const Navbar = props => {
-  const { title } = props
   const { user, logout } = useUser()
 
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -19,7 +20,6 @@ const Navbar = props => {
 
   const handleToggleMenu = () => setIsMenuOpen(!isMenuOpen)
   const handleToggleRoutesMenu = () => setIsRoutesMenuOpen(!isRoutesMenuOpen)
-
   return (
     <Row
       justifyContent='space-between'
@@ -48,11 +48,18 @@ const Navbar = props => {
         </Row>
       </DropdownMenu>
 
-      <DropdownMenu isMenuOpen={isRoutesMenuOpen} TitleComponent={<p onClick={handleToggleRoutesMenu}>Dashboard</p>}>
+      <DropdownMenu isMenuOpen={isRoutesMenuOpen} TitleComponent={<p onClick={handleToggleRoutesMenu}>Navegação</p>}>
         <Column>
-          <MenuItem cursor='pointer'>Rota 1</MenuItem>
-          <MenuItem cursor='pointer'>Rota 2</MenuItem>
-          <MenuItem cursor='pointer'>Rota 3</MenuItem>
+          {routes.map(({ path, name }) => (
+            <Link href={path}>
+              <MenuItem cursor='pointer'>{name}</MenuItem>
+            </Link>
+          ))}
+          {unauthenticatedRoutes.map(({ path, name }) => (
+            <Link href={path}>
+              <MenuItem cursor='pointer'>{name}</MenuItem>
+            </Link>
+          ))}
         </Column>
       </DropdownMenu>
     </Row>
