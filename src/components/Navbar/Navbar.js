@@ -51,7 +51,7 @@ const Navbar = () => {
       <DropdownMenu isMenuOpen={isRoutesMenuOpen} TitleComponent={<p onClick={handleToggleRoutesMenu}>Navegação</p>}>
         <Column>
           {routes.map(({ path, name }) => (
-            <Link href={path} textDecoration='none' color='white'>
+            <Link href={path} textDecoration='none' color='white' key={path}>
               <MenuItem cursor='pointer'>{name}</MenuItem>
             </Link>
           ))}
